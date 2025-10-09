@@ -1,4 +1,4 @@
-import { StyleSheet, ScrollView, Text, View, Image, TextInput, Button, Alert } from 'react-native';
+import { FlatList, StyleSheet, ScrollView, Text, View, Image, TextInput, Button, Alert } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -15,7 +15,8 @@ export default function App() {
         tabBarIndicatorStyle: { backgroundColor: '#ff6b6b' },
       }}>
         <Top.Screen name="Miku_Teto" component={Miku_TetoScreen} />
-        <Top.Screen name="Dante_Vergil" component={Dante_VergilScreen} />        
+        <Top.Screen name="Dante_Vergil" component={Dante_VergilScreen} />
+        <Top.Screen name="Respostas" component={RespostasScreen} />        
       </Top.Navigator>
     </NavigationContainer>
   );
@@ -55,7 +56,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('VOCALOID.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.baitolagem}>
           2 - (Kasane Teto): Teto é frequentemente confundida
           com uma Vocaloid, mas qual é o nome do software de 
@@ -70,7 +70,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('UTAU.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.baitolagem}>
           3 - (Hatsune Miku): Qual o significado das palavras 
           japonesas que compõem o nome de Hatsune Miku, que é "o 
@@ -84,7 +83,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('"O Primeiro Som do Futuro".')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.baitolagem}>
           4 - (Kasane Teto): Teto surgiu em uma data específica 
           como uma grande brincadeira dos fãs. Qual é essa data festiva 
@@ -98,7 +96,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Dia da Mentira (1º de Abril).')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.baitolagem}>
           5 - (Hatsune Miku): Além de cantar, Miku é famosa por se apresentar 
           "ao vivo" em shows. De que forma ela aparece no palco para o público?
@@ -111,7 +108,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Ela aparece como uma projeção 3D holográfica.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.baitolagem}>
           6 - (Kasane Teto): Qual item alimentar é o item característico de Kasane 
           Teto, sendo frequentemente associado a ela pelos fãs?
@@ -124,7 +120,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Baguete (pão francês).')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.baitolagem}>
           7 - (Hatsune Miku): Qual é a cor de cabelo inconfundível e vibrante de Hatsune Miku?
         </Text>
@@ -136,7 +131,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Azul-turquesa (ou verde-azulado).')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.baitolagem}>
           8 - (Kasane Teto): Na sua ficha de personagem, qual é a idade física/humana de Teto
            (apesar de ela ter 31 anos na sua forma quimera)?
@@ -149,7 +143,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('15,5 anos.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.baitolagem}>
           9 - (Hatsune Miku): Qual é o nome da dubladora japonesa que forneceu as amostras de voz 
           para criar o banco de voz de Miku?
@@ -162,7 +155,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Saki Fujita.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.baitolagem}>
           10 - (Kasane Teto): O que Teto detesta que as pessoas chamem suas maria-chiquinhas rosadas?
         </Text>
@@ -174,7 +166,6 @@ function Miku_TetoScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('"Furadeiras" ou "escavadeiras".')} title='MOSTRAR RESPOSTA' />
       </View>
     </ScrollView>
   );
@@ -214,7 +205,6 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Bolas de sinuca (ou bolas de bilhar).')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.viadagem}>
           2 - (Vergil): Qual é o nome da lendária katana que Vergil empunha, a 
           qual tem o poder de separar o homem do demônio?
@@ -227,7 +217,6 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Yamato.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.viadagem}>
           3 - (Dante): Qual é o nome do item (na verdade, uma arma) que Dante 
           é atingido de seu irmão após o primeiro grande duelo na torre Temen-ni-gru, 
@@ -241,7 +230,6 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Rebellion.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.viadagem}>
           4 - (Vergil): Qual é o nome do pai, o lendário Cavaleiro das Trevas, 
           que tanto Dante quanto Vergil idolatram de maneiras opostas?
@@ -254,7 +242,6 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Sparda.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.viadagem}>
           5 - (Dante): Em DMC3, Dante encontra uma jovem caçadora de demônios que 
           tenta matá-lo inicialmente e depois se torna sua aliada. Qual é o nome dela?
@@ -267,7 +254,6 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Mary (Lady).')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.viadagem}>
           6 - (Vergil): Qual é o nome do vilão humano que se une a Vergil no início do jogo, 
           manipulando os irmãos para tentar obter o poder de Sparda?
@@ -280,7 +266,6 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Arkham.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.viadagem}>
           7 - (Dante): Qual é o nome do "estilo" de combate de Dante, focado em defesa e 
           contra-ataques?
@@ -293,7 +278,6 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Royal Guard..')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.viadagem}>
           8 - (Vergil): Qual é a cor predominante do casaco longo e descolado que Vergil 
           usa, contrastando com o vermelho de Dante?
@@ -306,7 +290,6 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Azul (ou azul-marinho).')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.viadagem}>
           9 - (Dante): Qual é o nome do style de combate de Dante focado em velocidade, 
           esquivas e ataques rápidos, que permite a ele se teletransportar a curtas 
@@ -320,7 +303,6 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Trickster.')} title='MOSTRAR RESPOSTA' />
         <Text style={styles.viadagem}>
           10 - (Vergil): Vergil tem uma técnica de ataque rápido e silencioso usando sua 
           espada, que se tornou sua assinatura. Qual é o nome dessa técnica de teletransporte 
@@ -334,9 +316,46 @@ function Dante_VergilScreen() {
           secureTextEntry
           autoCapitalize= 'characters'
         />
-        <Button onPress={() => Alert.alert('Judgment Cut.')} title='MOSTRAR RESPOSTA' />
       </View>
     </ScrollView>
+  );
+}
+
+function RespostasScreen() {
+  const lista = [
+    {id: 'mtr1', nome: 'RESPOSTA 1 (MIKU E TETO) - VOCALOID.'},
+    {id: 'mtr2', nome: 'RESPOSTA 2 (MIKU E TETO) - UTAU.'},
+    {id: 'mtr3', nome: 'RESPOSTA 3 (MIKU E TETO) - "O Primeiro Som do Futuro".'},
+    {id: 'mtr4', nome: 'RESPOSTA 4 (MIKU E TETO) - Dia da Mentira (1º de Abril).'},
+    {id: 'mtr5', nome: 'RESPOSTA 5 (MIKU E TETO) - Ela aparece como uma projeção 3D holográfica.'},
+    {id: 'mtr6', nome: 'RESPOSTA 6 (MIKU E TETO) - Baguete (pão francês).'},
+    {id: 'mtr7', nome: 'RESPOSTA 7 (MIKU E TETO) - Azul-turquesa (ou verde-azulado).'},
+    {id: 'mtr8', nome: 'RESPOSTA 8 (MIKU E TETO) - 15,5 anos.'},
+    {id: 'mtr9', nome: 'RESPOSTA 9 (MIKU E TETO) - Saki Fujita.'},
+    {id: 'mtr10', nome: 'RESPOSTA 10 (MIKU E TETO) - "Furadeiras" ou "escavadeiras".'},
+    {id: 'dvr1', nome: 'RESPOSTA 1 (DANTE E VERGIL) - Bolas de sinuca (ou bolas de bilhar).'},
+    {id: 'dvr2', nome: 'RESPOSTA 2 (DANTE E VERGIL) - Yamato.'},
+    {id: 'dvr3', nome: 'RESPOSTA 3 (DANTE E VERGIL) - Rebellion.'},
+    {id: 'dvr4', nome: 'RESPOSTA 4 (DANTE E VERGIL) - Sparda.'},
+    {id: 'dvr5', nome: 'RESPOSTA 5 (DANTE E VERGIL) - Mary (Lady).'},
+    {id: 'dvr6', nome: 'RESPOSTA 6 (DANTE E VERGIL) - Arkham.'},
+    {id: 'dvr7', nome: 'RESPOSTA 7 (DANTE E VERGIL) - Royal Guard.'},
+    {id: 'dvr8', nome: 'RESPOSTA 8 (DANTE E VERGIL) - Azul (ou azul-marinho).'},
+    {id: 'dvr9', nome: 'RESPOSTA 9 (DANTE E VERGIL) - Trickster.'},
+    {id: 'dvr10', nome: 'RESPOSTA 10 (DANTE E VERGIL) - Judgment Cut.'},
+  ]
+  return (
+    <View>
+      <Text>RESPOSTAS</Text>
+      <FlatList
+        data={lista}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <Text>{item.nome}</Text>
+        )}
+        ItemSeparatorComponent={() => <View style={{ height: 1, backgroundColor: 'black' }} />}
+      />
+    </View>
   );
 }
 
