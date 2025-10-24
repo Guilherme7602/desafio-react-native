@@ -1,12 +1,17 @@
-import { FlatList, StyleSheet, ScrollView, Text, View, Image, TextInput, Button, Alert } from 'react-native';
+import { useState, createContext, useContext } from 'react';
+import { FlatList, StyleSheet, ScrollView, Text, View, Image, TextInput } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
 const Top = createMaterialTopTabNavigator();
 
+const ResponsesContext = createContext({});
+
 export default function App() {
+  const [answers, setAnswers] = useState({});
   return (
-    <NavigationContainer>
+    <ResponsesContext.Provider value={{ answers, setAnswers }}>
+      <NavigationContainer>
       <Top.Navigator
       screenOptions={{
         tabBarActiveTintColor: 'black',
@@ -18,7 +23,8 @@ export default function App() {
         <Top.Screen name="Dante_Vergil" component={Dante_VergilScreen} />
         <Top.Screen name="Respostas" component={RespostasScreen} />        
       </Top.Navigator>
-    </NavigationContainer>
+      </NavigationContainer>
+    </ResponsesContext.Provider>
   );
 }
 
@@ -48,124 +54,54 @@ function Miku_TetoScreen() {
           sintetizador vocal do qual Miku é a personagem mais 
           famosa?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+  <AnswerInput name='mtr1' />
         <Text style={styles.baitolagem}>
           2 - (Kasane Teto): Teto é frequentemente confundida
           com uma Vocaloid, mas qual é o nome do software de 
           sintetizador de voz gratuito do qual ela é originalmente 
           a UTAUloid?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='mtr2' />
         <Text style={styles.baitolagem}>
           3 - (Hatsune Miku): Qual o significado das palavras 
           japonesas que compõem o nome de Hatsune Miku, que é "o 
           primeiro som do futuro"?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='mtr3' />
         <Text style={styles.baitolagem}>
           4 - (Kasane Teto): Teto surgiu em uma data específica 
           como uma grande brincadeira dos fãs. Qual é essa data festiva 
           que marcou sua "origem como uma farsa"?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='mtr4' />
         <Text style={styles.baitolagem}>
           5 - (Hatsune Miku): Além de cantar, Miku é famosa por se apresentar 
           "ao vivo" em shows. De que forma ela aparece no palco para o público?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='mtr5' />
         <Text style={styles.baitolagem}>
           6 - (Kasane Teto): Qual item alimentar é o item característico de Kasane 
           Teto, sendo frequentemente associado a ela pelos fãs?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='mtr6' />
         <Text style={styles.baitolagem}>
           7 - (Hatsune Miku): Qual é a cor de cabelo inconfundível e vibrante de Hatsune Miku?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='mtr7' />
         <Text style={styles.baitolagem}>
           8 - (Kasane Teto): Na sua ficha de personagem, qual é a idade física/humana de Teto
            (apesar de ela ter 31 anos na sua forma quimera)?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='mtr8' />
         <Text style={styles.baitolagem}>
           9 - (Hatsune Miku): Qual é o nome da dubladora japonesa que forneceu as amostras de voz 
           para criar o banco de voz de Miku?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='mtr9' />
         <Text style={styles.baitolagem}>
           10 - (Kasane Teto): O que Teto detesta que as pessoas chamem suas maria-chiquinhas rosadas?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Coloque sua respostinha mágica aqui!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='mtr10' />
       </View>
     </ScrollView>
   );
@@ -197,153 +133,63 @@ function Dante_VergilScreen() {
           de demônios enquanto ainda está relaxando em seu escritório. Qual 
           bjeto ele usa de forma style para ricochetear projéteis nos inimigos na cena?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv1' />
         <Text style={styles.viadagem}>
           2 - (Vergil): Qual é o nome da lendária katana que Vergil empunha, a 
           qual tem o poder de separar o homem do demônio?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv2' />
         <Text style={styles.viadagem}>
           3 - (Dante): Qual é o nome do item (na verdade, uma arma) que Dante 
           é atingido de seu irmão após o primeiro grande duelo na torre Temen-ni-gru, 
           sendo a própria espada de Dante?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv3' />
         <Text style={styles.viadagem}>
           4 - (Vergil): Qual é o nome do pai, o lendário Cavaleiro das Trevas, 
           que tanto Dante quanto Vergil idolatram de maneiras opostas?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv4' />
         <Text style={styles.viadagem}>
           5 - (Dante): Em DMC3, Dante encontra uma jovem caçadora de demônios que 
           tenta matá-lo inicialmente e depois se torna sua aliada. Qual é o nome dela?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv5' />
         <Text style={styles.viadagem}>
           6 - (Vergil): Qual é o nome do vilão humano que se une a Vergil no início do jogo, 
           manipulando os irmãos para tentar obter o poder de Sparda?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv6' />
         <Text style={styles.viadagem}>
           7 - (Dante): Qual é o nome do "estilo" de combate de Dante, focado em defesa e 
           contra-ataques?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv7' />
         <Text style={styles.viadagem}>
           8 - (Vergil): Qual é a cor predominante do casaco longo e descolado que Vergil 
           usa, contrastando com o vermelho de Dante?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv8' />
         <Text style={styles.viadagem}>
           9 - (Dante): Qual é o nome do style de combate de Dante focado em velocidade, 
           esquivas e ataques rápidos, que permite a ele se teletransportar a curtas 
           distâncias?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv9' />
         <Text style={styles.viadagem}>
           10 - (Vergil): Vergil tem uma técnica de ataque rápido e silencioso usando sua 
           espada, que se tornou sua assinatura. Qual é o nome dessa técnica de teletransporte 
           e corte ultra-rápido?
         </Text>
-        <TextInput
-          style={styles.mresposta}
-          placeholder='Não seja um noob, type a resposta já!'
-          maxLength={50}
-          inputMode= 'text'
-          secureTextEntry
-          autoCapitalize= 'characters'
-        />
+        <AnswerInput name='dv10' />
       </View>
     </ScrollView>
   );
 }
 
 function RespostasScreen() {
-  const lista = [
-    {id: 'mtr1', nome: 'RESPOSTA 1 (MIKU E TETO) - VOCALOID.'},
-    {id: 'mtr2', nome: 'RESPOSTA 2 (MIKU E TETO) - UTAU.'},
-    {id: 'mtr3', nome: 'RESPOSTA 3 (MIKU E TETO) - "O Primeiro Som do Futuro".'},
-    {id: 'mtr4', nome: 'RESPOSTA 4 (MIKU E TETO) - Dia da Mentira (1º de Abril).'},
-    {id: 'mtr5', nome: 'RESPOSTA 5 (MIKU E TETO) - Ela aparece como uma projeção 3D holográfica.'},
-    {id: 'mtr6', nome: 'RESPOSTA 6 (MIKU E TETO) - Baguete (pão francês).'},
-    {id: 'mtr7', nome: 'RESPOSTA 7 (MIKU E TETO) - Azul-turquesa (ou verde-azulado).'},
-    {id: 'mtr8', nome: 'RESPOSTA 8 (MIKU E TETO) - 15,5 anos.'},
-    {id: 'mtr9', nome: 'RESPOSTA 9 (MIKU E TETO) - Saki Fujita.'},
-    {id: 'mtr10', nome: 'RESPOSTA 10 (MIKU E TETO) - "Furadeiras" ou "escavadeiras".'},
-    {id: 'dvr1', nome: 'RESPOSTA 1 (DANTE E VERGIL) - Bolas de sinuca (ou bolas de bilhar).'},
-    {id: 'dvr2', nome: 'RESPOSTA 2 (DANTE E VERGIL) - Yamato.'},
-    {id: 'dvr3', nome: 'RESPOSTA 3 (DANTE E VERGIL) - Rebellion.'},
-    {id: 'dvr4', nome: 'RESPOSTA 4 (DANTE E VERGIL) - Sparda.'},
-    {id: 'dvr5', nome: 'RESPOSTA 5 (DANTE E VERGIL) - Mary (Lady).'},
-    {id: 'dvr6', nome: 'RESPOSTA 6 (DANTE E VERGIL) - Arkham.'},
-    {id: 'dvr7', nome: 'RESPOSTA 7 (DANTE E VERGIL) - Royal Guard.'},
-    {id: 'dvr8', nome: 'RESPOSTA 8 (DANTE E VERGIL) - Azul (ou azul-marinho).'},
-    {id: 'dvr9', nome: 'RESPOSTA 9 (DANTE E VERGIL) - Trickster.'},
-    {id: 'dvr10', nome: 'RESPOSTA 10 (DANTE E VERGIL) - Judgment Cut.'},
-  ]
+  const { answers } = useContext(ResponsesContext);
+  const lista = Object.keys(answers).map((key, index) => ({ id: String(index + 1), nome: answers[key] }));
   return (
     <View>
       <Text>RESPOSTAS</Text>
@@ -354,8 +200,25 @@ function RespostasScreen() {
           <Text>{item.nome}</Text>
         )}
         ItemSeparatorComponent={() => <View style={{ height: 1, backgroundColor: 'black' }} />}
+        ListEmptyComponent={() => <Text>Nenhuma resposta ainda.</Text>}
       />
     </View>
+  );
+}
+
+function AnswerInput({ name }) {
+  const { answers, setAnswers } = useContext(ResponsesContext);
+  const value = answers[name] || '';
+  return (
+    <TextInput
+      style={styles.mresposta}
+      placeholder='Coloque sua respostinha mágica aqui!'
+      maxLength={50}
+      inputMode='text'
+      autoCapitalize='characters'
+      value={value}
+      onChangeText={(text) => setAnswers(prev => ({ ...prev, [name]: text }))}
+    />
   );
 }
 
